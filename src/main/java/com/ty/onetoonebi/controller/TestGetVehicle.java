@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import com.ty.onetonebi.dto.Charcy;
 import com.ty.onetonebi.dto.Vehicle;
 
 public class TestGetVehicle {
@@ -14,7 +15,9 @@ public class TestGetVehicle {
 		Vehicle vehicle=entityManager.find(Vehicle.class,4);
 		System.out.println("Vehicle name : "+vehicle.getName());
 		System.out.println("Vehicle cost : "+vehicle.getCost());
-		System.out.println("Vehicle charcy : "+vehicle.getCharcy().getCharcyNumber());
-		System.out.println("Vehicle type : "+vehicle.getCharcy().getType());		
+		
+		Charcy charcy=vehicle.getCharcy();
+		System.out.println("Vehicle charcy : "+charcy.getCharcyNumber());
+		System.out.println("Vehicle type : "+charcy.getType());		
 	}
 }
